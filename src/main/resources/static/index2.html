@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="JSPoker" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <title>Welcome to Poker</title>
+</head>
+
+<script>//later to move this JS code to separate file!
+
+var app = angular.module('JSPoker', []);
+app.controller('helloController', function () {
+    this.myVariable = 0;
+
+    this.incrementVariable = incrementVariable; // making link to the func
+    function incrementVariable() {
+        this.myVariable++;
+    }
+
+    this.clearVariable = clearVariable; // making link to the func
+    function clearVariable() {
+        this.myVariable = 0;
+    }
+} );
+
+
+app.directive('myQuestion', function() {
+    return { //just return literal object
+        template: '5 * 5 = 40 ? <button>Yes</button> <button>No</button>', // html. new tag
+        //link: alert('question') // func which will be executed
+    };
+});
+</script>
+
+
+<body ng-controller="helloController as hello">
+
+<input type="text" name="userName" ng-model="userName" value="44 Enter your name:" >
+<span ng-if="userName">
+    <h2> Hello, {{userName}}. Welcome to the game.</h2>
+    <h3>{{userName}}, how are you?</h3>
+</span>
+
+<br/><br/>
+<button ng-click="hello.incrementVariable()">Count: {{hello.myVariable}}</button>
+<br>
+<button ng-click="hello.clearVariable()">Clear</button>
+
+<br> <br>
+
+<my-question>hello question</my-question>
+
+<br>
+
+<p my-question>another case</p>
+
+</body>
+</html>

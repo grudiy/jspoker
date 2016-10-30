@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "description": "JS Poker",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "author": "grudiy"
+}

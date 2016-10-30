@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="JSPoker" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <title>Welcome to Poker</title>
+</head>
+
+<script>//later to move this JS code to separate file!
+var app = angular.module('JSPoker', []);
+app.component('questionComponent', {
+    controller: function () { //private controller of this directive
+        this.myVariable = 0;
+
+        this.incrementVariable = incrementVariable; // making link to the func
+        function incrementVariable() {
+            this.myVariable++;
+        }
+    },
+    template: '<button ng-click="$ctrl.incrementVariable()">Count: {{$ctrl.myVariable}}</button>'
+}
+)
+</script>
+
+<body>
+<br/><br/>
+<question-component>bla bla</question-component>
+</body>
+</html>
